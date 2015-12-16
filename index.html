@@ -2,10 +2,9 @@
   <header>
   <script src="https://raw.githubusercontent.com/processing-js/processing-js/v1.4.8/processing.js"></script>
   </header>
-  <h1>Your Sketch Title</h1>
+  <h1>Assignment2.pde</h1>
   <script type="text/processing" data-processing-target="mycanvas1">
-  
-  
+
   void setup(){
   size(1500,1000);
   background(0,100,255);
@@ -136,5 +135,631 @@ void draw(){
 
   </script>
   <canvas id="mycanvas1"></canvas>
+  <p>Description:</p>
+        <br Sports Theme />
+        <br A bow and arrow and a target/>
+  <h1>Assignment1.pde</h1>
+  <script type="text/processing" data-processing-target="mycanvas2">
+  
+  void setup(){
+  size(800,800);
+  background(0,100,255);
+  fill(255,0,0);
+  ellipse(400,300,300,250);
+  fill(255,255,150);
+  rect(326,325,150,150,75);
+  fill(255,255,255);
+  ellipseMode(CORNER);
+  ellipse(250,250,50,110);
+  fill(255,255,255);
+  ellipseMode(CENTER);
+  ellipse(400,250,90,110);
+  ellipseMode(CORNER);
+  ellipse(495,245,55,110);
+  fill(255,255,0);
+  rectMode(CENTER);
+  rect(400,500,200,200);
+  strokeWeight(20);
+  point(420,370);
+  strokeWeight(20);
+  point(380,370);
+  noStroke();
+  fill(100,0,0);
+  rectMode(CENTER);
+  rect(200,500,200,200);
+}
+
+  </script>
+  <canvas id="mycanvas2"></canvas>
+  <p>Description:</p>
+        <br Video Games Theme/>
+        <br Mario Mushroom Picture/>
+  <h1>Assignment5.pde</h1>
+  <script type="text/processing" data-processing-target="mycanvas3">
+  
+  void setup(){
+ size(1000,700);
+ background(0,0,255);
+ noStroke();
+ fill(0,255,0);
+ rect(0,600,1000,200);
+ jason();
+}
+//arm movement variables
+float arm1=310;
+float arm2=270;
+float arm3=210;
+//jason character
+void jason(){
+  //head
+  fill(242,224,109);
+  ellipse(200,200,95,110);
+  noStroke();
+  //blackshirt/pants
+  fill(0,0,0);
+  rect(173,270,53,200);
+  fill(242,224,109);
+  quad(185,250,215,250,225,270,175,270);
+  fill(0,0,51);
+  rect(140,460,115,390,10);
+  fill(242,224,109);
+  arc(200,270,50,50,0,PI,CHORD);
+  //mask
+  fill(247,239,187);
+  strokeWeight(1);
+  stroke(0,0,0);
+  ellipse(220,200,55,110);
+  //nose
+  triangle(235,200,243,215,235,215);
+  fill(0,0,0);
+  rect(152,196,45,15,5);
+  noStroke();
+  fill(200,0,0);
+  triangle(225,180,243,180,235,190);
+  //all of the holes in the mask
+  strokeWeight(1);
+  fill(0,0,0);
+  ellipse(220,200,20,15);
+  ellipse(220,160,5,5);
+  ellipse(225,170,5,5);
+  ellipse(225,180,5,5);
+  ellipse(243,180,5,5);
+  ellipse(230,187,5,5);
+  ellipse(240,187,5,5);
+  ellipse(230,220,5,5);
+  ellipse(230,230,5,5);
+  ellipse(230,240,5,5);
+  ellipse(240,220,5,5);
+  ellipse(240,230,5,5);
+  ellipse(215,225,5,5);
+  ellipse(210,230,5,5);
+  ellipse(205,175,5,5);
+  ellipse(210,180,5,5);
+  ellipse(240,170,5,5);
+  ellipse(235,160,5,5);
+  arc(247,200,15,15,HALF_PI,PI+HALF_PI,CHORD);
+  //body
+  noStroke();
+  fill(25,51,0);
+  rect(125,270,50,200,5);
+  rect(225,270,50,200,5);
+  //arm
+  quad(225,270,225,310,355,arm1,355,arm2);
+  quad(355,arm1,315,arm1,315,arm3,355,arm3);
+  fill(0,0,0);
+  ellipse(335,arm3-10,30,30);
+  ellipse(65,455,30,30);
+  fill(25,51,0);
+  quad(125,270,125,330,45,430,45,370);
+  rect(45,370,40,75);
+  //machete
+  stroke(160);
+  strokeWeight(25);
+  line(320,160,220,70);
+  stroke(0,0,0);
+  strokeWeight(20);
+  line(345,190,325,170);
+
+}
+boolean machete=false;
+void draw(){
+  if(machete==false){
+    for(int i=1;i<=5;i++){
+      if (arm1==290 && arm2==250 && arm3==190){
+        break;
+      }else{
+       arm1=arm1-1;
+       arm2=arm2-1;
+       arm3=arm3-1;
+      }
+    }
+    size(1000,700);
+    background(0,0,255);
+    noStroke();
+    fill(0,255,0);
+    rect(0,600,1000,200);
+    jason();
+    victim();
+  }else if (machete==true){
+    jasonswing();
+    beheaded();
+  }
+  }
+void victim(){
+  noStroke();
+  fill(242,224,109);
+  ellipse(500,300,95,110);
+  fill(0,0,50);
+  rect(450,550,100,200);
+  fill(255,0,0);
+  rect(350,370,300,40);
+  rect(450,370,100,200,10);
+  fill(242,224,109);
+  quad(485,350,515,350,525,370,475,370);
+  arc(500,370,50,50,0,PI,CHORD);
+}
+void mouseClicked(){
+ machete=!machete; 
+}
+void jasonswing(){
+ background(0,0,255);
+ noStroke();
+ fill(0,255,0);
+ rect(0,600,1000,200);
+ //head
+  fill(242,224,109);
+  ellipse(200,200,95,110);
+  noStroke();
+  //blackshirt/pants
+  fill(0,0,0);
+  rect(173,270,53,200);
+  fill(242,224,109);
+  quad(185,250,215,250,225,270,175,270);
+  fill(0,0,51);
+  rect(140,460,115,390,10);
+  fill(242,224,109);
+  arc(200,270,50,50,0,PI,CHORD);
+  //mask
+  fill(247,239,187);
+  strokeWeight(1);
+  stroke(0,0,0);
+  ellipse(220,200,55,110);
+  //nose
+  triangle(235,200,243,215,235,215);
+  fill(0,0,0);
+  rect(152,196,45,15,5);
+  noStroke();
+  fill(200,0,0);
+  triangle(225,180,243,180,235,190);
+  //all of the holes in the mask
+  strokeWeight(1);
+  fill(0,0,0);
+  ellipse(220,200,20,15);
+  ellipse(220,160,5,5);
+  ellipse(225,170,5,5);
+  ellipse(225,180,5,5);
+  ellipse(243,180,5,5);
+  ellipse(230,187,5,5);
+  ellipse(240,187,5,5);
+  ellipse(230,220,5,5);
+  ellipse(230,230,5,5);
+  ellipse(230,240,5,5);
+  ellipse(240,220,5,5);
+  ellipse(240,230,5,5);
+  ellipse(215,225,5,5);
+  ellipse(210,230,5,5);
+  ellipse(205,175,5,5);
+  ellipse(210,180,5,5);
+  ellipse(240,170,5,5);
+  ellipse(235,160,5,5);
+  arc(247,200,15,15,HALF_PI,PI+HALF_PI,CHORD);
+  //body
+  noStroke();
+  fill(25,51,0);
+  rect(125,270,50,200,5);
+  rect(225,270,50,200,5);
+  //arm
+  fill(0,0,0);
+  ellipse(65,455,30,30);
+  fill(25,51,0);
+  quad(125,270,125,330,45,430,45,370);
+  rect(45,370,40,75);
+  quad(275,270,275,380,325,450,345,420);
+  fill(0,0,0);
+  ellipse(340,440,30,30);
+  //machete
+  stroke(160);
+  strokeWeight(25);
+  line(360,462,460,552);
+  stroke(0,0,0);
+  strokeWeight(20);
+  line(350,450,330,430);
+}
+int balldiameter=95;
+void beheaded(){
+  noStroke();
+  fill(0,0,50);
+  rect(450,550,100,200);
+  fill(255,0,0);
+  rect(350,370,300,40);
+  rect(450,370,100,200,10);
+  fill(242,224,109);
+  quad(485,350,515,350,525,370,475,370);
+  arc(500,370,50,50,0,PI,CHORD);
+ ellipse(posX,posY,balldiameter,balldiameter);
+ update();
+}
+int posX=550;
+float posY=300;
+int movementsize = 3;
+float jumpsize = -0.5;
+boolean onGround;
+float gravity = 1.5;
+float velocityY = 0.0;
+void update(){
+ posY = velocityY + posY;
+ if(posY + (balldiameter/2) >= height/2){
+   posY = (height/2) - balldiameter/2;
+   onGround = true;
+ }else{
+   onGround = false;
+}
+}
+void jump(){
+  velocityY = -20.0;
+}
+
+  </script>
+  <canvas id="mycanvas3"></canvas>
+  <p>Description:</p>
+        <br Halloween Theme/>
+        <br Jason Vorhees beheading someone/>
+  <h1>Your Assignment6.pde</h1>
+  <script type="text/processing" data-processing-target="mycanvas4">
+  
+  int posX = 10;
+int posY = 100;
+int posZ = 10;
+int movementsize = 1;
+int pupildiameter = 15;
+boolean phase = false;
+int circlePositionX = 400;
+int circlePositionY = 450;
+int circleSizeX = 75;
+int circleSizeY = 75;
+color a;
+color b;
+color c;
+
+void setup(){
+ size(800,600); 
+
+}
+void draw(){
+ if (phase==false){
+ background(200);
+ fill(0,0,0);
+ textSize(32);
+ text("Before Coffee",400,100);
+ collegestudent();
+ hand();
+ update();
+ }else if (phase ==true){
+  background(0,0,255);
+  energized();
+  hand();
+ fill(0,0,0);
+ textSize(32);
+ text("After Coffee",400,100);
+ randomizePos();  
+ colorize();  
+ displayEllipse();
+
+ }
+
+
+ 
+}
+void update(){
+  if (((posX+100) + pupildiameter/2) > 200){
+   movementsize = movementsize * -1; 
+  }else if (posX+100  < 100){
+   movementsize = movementsize * -1; 
+  }
+ posX = posX + movementsize;
+}
+void collegestudent(){
+ strokeWeight(1);
+ fill(255,153,51);
+ ellipse(98,100,350,400);
+ fill(255,255,255);
+ ellipse(48,100,100,100);
+ fill(255,255,255);
+ ellipse(148,100,100,100);
+ fill(0,0,0);
+ ellipse(posX,posY,pupildiameter,pupildiameter);
+ ellipse(posX+100,posY,pupildiameter,pupildiameter);
+ fill(135,39,208);
+ arc(48,105,100,95,0,PI,CHORD);
+ fill(135,39,208);
+ arc(148,105,100,95,0,PI,CHORD);
+ fill(135,39,208);
+ arc(48,95,100,95,PI,TWO_PI,CHORD);
+ fill(135,39,208);
+ arc(148,95,100,95,PI,TWO_PI,CHORD);
+ stroke(0,0,0);
+ strokeWeight(20);
+ line(48,200,148,200);
+ strokeWeight(1);
+ fill(0,153,0);
+ rect(0,300,300,500);
+}
+void hand(){
+ fill(250);
+ rect(mouseX,mouseY-100,100,150);
+ fill(153,76,0);
+ rect(mouseX,mouseY-30,100,50);
+ fill(255,153,51);
+ ellipse(mouseX,mouseY,150,150);
+}
+void mouseClicked(){
+  phase=!phase;
+}
+void energized(){
+  strokeWeight(1);
+ fill(255,153,51);
+ ellipse(98,100,350,400);
+ fill(255,255,255);
+ ellipse(48,100,100,100);
+ fill(255,255,255);
+ ellipse(148,100,100,100);
+ fill(0,0,0);
+ ellipse(posX,posY,pupildiameter,pupildiameter);
+ ellipse(posX+100,posY,pupildiameter,pupildiameter);
+ stroke(0,0,0);
+ strokeWeight(20);
+ line(48,200,148,200);
+ strokeWeight(1);
+ fill(0,153,0);
+ rect(0,300,300,500);
+  
+}
+void randomizePos(){  
+ circlePositionX = round(random(width));  
+ circlePositionY = round(random(height));  
+ }
+void colorize(){ 
+   a = round(random(255));
+   b = round(random(255));
+   c = round(random(255));  
+   } 
+void displayEllipse(){  
+  fill(c);  
+  ellipse(circlePositionX, circlePositionY, circleSizeX, circleSizeY);
+}
+
+  </script>
+  <canvas id="mycanvas4"></canvas>
+  <p>Description:</p>
+        <br food theme/>
+        <br showing effects of coffee/>
+  <h1>Assignment9.pde</h1>
+  <script type="text/processing" data-processing-target="mycanvas5">
+  
+  Turkey[] legs; 
+Pie myPie;
+Pie pie2;
+Timer myTimer;
+Timer pieTimer;
+PImage turkey;
+PImage face;
+PImage pie;
+PImage thanksgiving;
+int legCount;
+Boolean scene = false;
+Movement newMovement;
+
+
+class Movement{
+  int centerX, centerY, offset1, offset2, offsetX1, offsetX2, r1, r2, r3;
+  boolean keys[];    // In this array, the index corresponds with W,S,A,D.
+  
+  int xVelocity, yVelocity;
+  
+  // constructor
+  Movement(){
+    centerX = 500;
+    centerY = 600;
+    keys = new boolean [4];
+  }
+  
+  void display(){  
+     image(face, centerX, centerY);
+  }
+  
+  void update(){
+    if (keys[0]){
+      yVelocity = -5;
+    }
+    if(keys[1]){
+      yVelocity = 5;
+    }
+    if(keys[2]){
+      xVelocity = -5;
+    }
+    if(keys[3]){
+      xVelocity = 5;
+    }
+    if(!keys[2] && !keys[3]){ // if both Left and Right are released, horizontal velocity should be zero.
+      xVelocity = 0;
+      //println("no left or right");
+    }
+    if(!keys[0] && !keys[1]){ // if both Up and Down are released, vertical velocity should be zero.
+      yVelocity = 0;
+      //println("no left or right");
+    }
+    centerX += xVelocity;
+    centerY += yVelocity;
+  }
+  
+  void keyPressed(){
+    if(key == 'w'){
+      keys[0] = true;
+    } 
+    if(key == 's'){
+      keys[1] = true;
+    }
+    if(key == 'a'){
+      keys[2] = true;
+    }
+    if(key == 'd'){
+      keys[3] = true;
+    } 
+  }
+  
+  void keyReleased(){ // the 
+    println("Keyreleased " + key);
+    if(key == 'w'){
+      keys[0] = false;
+    } 
+    if(key == 's'){
+      keys[1] = false;
+    }
+    if(key == 'a'){
+      keys[2] = false;
+    }
+    if(key == 'd'){
+      keys[3] = false;
+    } 
+  }   
+}
+
+class Turkey{
+  int centerX, centerY;
+  
+  // constructor
+  Turkey(){
+    centerX = round(random(width));
+    centerY = 10;
+  }
+  
+  // update position
+  void update(){
+    centerX = round(random(-10,10)) + centerX;
+    centerY = centerY + 1;
+  }
+  // display the enemy after the position is updated
+  void display(){
+    image(turkey, centerX, centerY);
+  }
+}
+class Pie{
+  int centerX, centerY;
+  void updatePie(){
+    centerX = round(random(0, width));
+    centerY = round(random(0, height));
+  }
+  void drawPie(){
+    image(pie, centerX, centerY);
+  }
+}
+
+class Timer{
+  float startTime, stopTime;
+   boolean started = false; 
+  Timer(float _stopTime){
+    stopTime = _stopTime;
+  }
+  void timerStart(){
+    startTime = millis();
+    started = true;
+  }
+  
+  void stopTimer(){
+    started = false;
+    println("time stopped");
+  }
+  boolean isFinished(){
+    float passedTime = millis() - startTime;
+    if((passedTime > stopTime) && (started)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
+
+void setup(){
+  size(1000, 800);  
+  legs = new Turkey[1000];              // create the array with 1000 slots
+  for(int x = 0; x < legs.length-1; x++){    // create 1000 instances for turkey legs
+    legs[x] = new Turkey();
+  }
+  myTimer = new Timer(500);     // sets timer to 0.5 seconds
+  myTimer.timerStart();
+  pieTimer = new Timer(500);
+  pieTimer.timerStart();
+  String url = "http://img3.wikia.nocookie.net/__cb20100615145310/frontierville/images/4/4b/Chicken_Drumstick-icon.png";
+  turkey = loadImage(url, "png");
+  String web = "http://38.media.tumblr.com/c8bc1b2746eba15e967a4ba4575cf588/tumblr_inline_n9qnsthfYm1s4rar7.png";
+  face = loadImage(web, "png");
+  String page = "http://icons.iconseeker.com/png/fullsize/quickpix-2004/pumpkin-pie-2.png";
+  pie = loadImage(page, "png");
+  String url2 = "http://4.bp.blogspot.com/-PA4Ep0anGRA/VkMFQLCeK7I/AAAAAAAAAN8/l1_w14ZZb0w/s1600/thanksgiving%2Bclipart%2Bturkey.jpg";
+  thanksgiving = loadImage(url2, "jpg");  //image for second scene
+  newMovement = new Movement(); //face movement
+  myPie = new Pie();  //two different pies spawning
+  pie2 = new Pie();
+}
+
+void draw(){
+  background(255,0,0);
+  if(scene == false){
+    if(myTimer.isFinished()){                      // whenever the timer goes off, add other enemy
+      legCount++;
+      myTimer.timerStart(); // restart the timer      // restart the timer everytime the timer goes off
+    }
+    if (legCount == legs.length-1){         
+      legCount = 0;
+    }
+    for(int newLegs = legCount; newLegs > 0 ; newLegs --){    
+      legs[newLegs].update();                                  
+      legs[newLegs].display();
+    }
+    newMovement.update();
+    newMovement.display();
+    if(pieTimer.isFinished()){
+      myPie.updatePie();
+      pie2.updatePie();
+      pieTimer.timerStart();
+    }
+    myPie.drawPie();
+    pie2.drawPie();
+  }else{
+     background(0);
+     textSize(50);
+     text("Happy Thanksgiving!", 250, 400);
+     image(thanksgiving, 250, 500);
+  }
+}
+void keyPressed(){
+  newMovement.keyPressed(); // the global keyPressed function calls the Movement class keyPressed method.  
+}
+
+void keyReleased(){
+  newMovement.keyReleased(); 
+}
+void mouseClicked(){  // change scenes
+   scene = !scene;
+}
+
+  </script>
+  <canvas id="mycanvas5"></canvas>
+  <p>Description:</p>
+        <br thanksgiving theme/>
+        <br showing love for food/>
   </body>
 </html>  
+
+
